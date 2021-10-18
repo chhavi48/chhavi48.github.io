@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <title>Instagram</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            background-color: #fafafa;
+            font-family: sans-serif;
+        }
+
+        .flex {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .navbar {
+            height: 60px;
+            position: fixed;
+            top: 0;
+            background: white;
+            border: 1px solid rgb(220, 220, 220);
+            width: 100%;
+        }
+
+        .nav-content {
+            padding: 0px 20px;
+            height: 60px;
+            width: 100%;
+        }
+
+        .logo {
+            margin-right: 20%;
+        }
+
+        .navsearch {
+            height: 28px;
+            width: 200px;
+            border: 1px solid rgb(220, 220, 220);
+            text-indent: 40%;
+            border-radius: 4px;
+            background-color: #fafafa;
+            margin-right: 100px;
+        }
+
+        .icon {
+            margin-right: 15px;
+            font-size: 27px;
+            color: #444444;
+        }
+
+        .stories-box {
+            width: 600px;
+            height: 80px;
+            background-color: white;
+            border: 1px solid rgb(220, 220, 220);
+            border-radius: 4px;
+            margin-top: 90px;
+            margin-left: 20%;
+            padding: 10px;
+        }
+
+        .story {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 10px;
+            margin: 4px;
+        }
+
+        .story-img {
+            border-radius: 50%;
+        }
+
+        .username {
+            font-size: 14px;
+            color: black;
+
+        }
+
+        .pst-card {
+            margin-top: 20px;
+            border: 1px solid rgb(220 220 220);
+            border-radius: 4px;
+            background-color: white;
+            width: 600px;
+            margin-left: 20%;
+            padding: 10px;
+        }
+
+        .pst-title {
+            display: flex;
+            align-items: center;
+        }
+
+        .pst-profile-image {
+            width: 32px;
+            width: 32px;
+            border-radius: 50%;
+
+        }
+
+        .pst-title-detail {
+            margin-left: 10px;
+            flex-direction: column;
+            display: flex;
+
+        }
+
+        .pst-username {
+            font-weight: 600;
+            font-size: 14px;
+
+        }
+
+        .pst-location {
+            color: rgb(46, 40, 40);
+            font-size: 13px;
+        }
+
+        .pst-image {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .pst-icon {
+            font-size: 27px;
+            margin-top: 10px;
+            color: rgb(77, 70, 70);
+        }
+
+        .right-icon {
+            margin-left: 79%;
+        }
+
+        .state {
+            font-size: 14px;
+            margin-top: 14px;
+            align-items: center;
+
+
+        }
+
+        .desc {
+            margin-top: 10px;
+        }
+
+        .thiner-text {
+            font-weight: bold;
+        }
+
+        .view-all-comment {
+            color: gray;
+            font-size: 15px;
+        }
+
+        .comment {
+            margin-left: 7px;
+
+        }
+
+        .duration-past {
+            color: gray;
+            font-size: 15px;
+        }
+
+        .newcomment {
+            display: flex;
+            align-items: center;
+        }
+
+        .newcommentinput {
+            border: none;
+
+        }
+
+        .post-text {
+            color: rgb(0, 149, 246);
+            margin-left: 64%;
+        }
+
+        .aside-container {
+            width: 400px;
+            border: 1px solid rgb(220, 220, 220);
+            margin-left: 60%;
+            margin-top: -172%;
+            height: 600px;
+            position: fixed;
+        }
+
+        .afirst {
+            width: 550px;
+            height: 60px;
+    
+     font-size: 12px;
+      margin-left: 10px;
+        }
+        .switch {
+            color: rgb(101, 101, 235);
+            margin-left: 50%;
+            margin-top:-30px;
+            font-size: 15px;
+
+        }
+        
+
+        .pst-profile-imagea {
+            width: 32px;
+            width: 32px;
+            border-radius: 50%;
+            margin-left: 10px;
+            margin-top: 17px;
+        
+    
+        }
+        .pst-title-detaila {
+            margin-left: 10px;
+            flex-direction: column;
+            display: flex;
+
+        }
+
+        .pst-usernamea {
+            font-weight: 600;
+            font-size: 14px;
+        }
+        .pst-locationa{
+            color: rgb(46, 40, 40);
+            font-size: 13px;
+        }
+      
+        .sugg{
+            width: 550px;
+            height: 60px;
+            margin-top: 30px;
+        }
+        .sfu{
+            color: gray;
+        }
+        .sl{
+            margin-left: 50%;
+            margin-top: -13px;
+        }
+        .extra{
+            margin-left: 20px;
+            margin-top: 10px;
+            font-size: 15px;
+            color: rgb(66, 50, 50);
+        }
+        
+    </style>
+</head>
+
+<body>
+    <nav class="navbar flex">
+        <div class="nav-content flex">
+            <img class="logo" src="photos/ins.png">
+            <input class="navsearch" type="text" placeholder="search" />
+            <div class="icon">
+
+                <span class="material-icons nav-icons">home</span>
+                <span class="material-icons-outlined nav-icons">chat</span>
+                <span class="material-icons-outlined nav-icons">explore</span>
+                <span class="material-icons-outlined nav-icons">favorite_border</span>
+
+            </div>
+        </div>
+    </nav>
+    <main>
+        <!--left side-->
+        <div class="left">
+            <div class="stories-box flex">
+                <div class="story">
+                    <img class="story-img" src="https://i.pravatar.cc/56?u=12344">
+                    <span class="username">nandani</span>
+                </div>
+                <div class="story">
+                    <img class="story-img" src="https://i.pravatar.cc/56?u=12348">
+                    <span class="username">sujii</span>
+                </div>
+                <div class="story">
+                    <img class="story-img" src="https://i.pravatar.cc/56?u=12349">
+                    <span class="username">chhavi</span>
+                </div>
+                <div class="story">
+                    <img class="story-img" src="https://i.pravatar.cc/56?u=12358">
+                    <span class="username">mammy</span>
+                </div>
+                <div class="story">
+                    <img class="story-img" src="https://i.pravatar.cc/56?u=12366">
+                    <span class="username">papa</span>
+                </div>
+                <div class="story">
+                    <img class="story-img" src="https://i.pravatar.cc/56?u=12393">
+                    <span class="username">devam</span>
+                </div>
+                <div class="story">
+                    <img class="story-img" src="https://i.pravatar.cc/56?u=12395">
+                    <span class="username">hari</span>
+                </div>
+                <div class="story">
+                    <img class="story-img" src="https://i.pravatar.cc/56?u=12399">
+                    <span class="username">deva</span>
+                </div>
+                <div class="story">
+                    <img class="story-img" src="https://i.pravatar.cc/56?u=12398">
+                    <span class="username">rohit</span>
+                </div>
+
+            </div>
+            <!--post card-->
+            <div class="pst-card">
+                <div class="pst-title">
+                    <img src="https://i.pravatar.cc/56?u=12357" class="pst-profile-image">
+                    <span class="pst-title-detail">
+                        <span class="pst-username">nandani</span>
+                        <span class="pst-location">ayodhya</span>
+                    </span>
+                </div>
+                <div>
+                    <img class="pst-image" src="photos/pecock.jpg">
+                </div>
+                <!--images details-->
+                <div class="interaction">
+
+                    <span class="material-icons-outlined post-icons">favorite_border</span>
+                    <span class="material-icons-outlined post-icons">chat_bubble_outline</span>
+                    <span class="material-icons-outlined post-icons">send</span>
+                    <span class="material-icons-outlined post-icons right-icon">bookmark_border</span>
+                </div>
+                <div class="state">
+                    <img class="story-img mx" src="https://i.pravatar.cc/16?u=12359">
+                    Liked by <strong class="thinner-text">akshay_a</strong> and
+                </div>
+                <div class="desc">
+                    <strong lcass="thiner-text">punrti</strong>wlcome to masi
+                </div>
+                <div class="view-all-comment">view all 7 omments</div>
+                <div class="comment"><strong>chhavi-and </strong>😂😊😁😍</div>
+                <div class="comment"><strong>lavi and 7 </strong>💕😊🤦‍♀️🤦‍♂️</div>
+                <div class="duration-past">5 hour ago</div>
+                <hr>
+                <div class="newcomment">
+                    <span></span>
+                    <input class="newcommentinput" type="text" placeholder="add comments...." />
+                    <span class="post-text">post</span>
+                </div>
+
+
+
+
+
+
+
+            </div>
+            <div class="pst-card">
+                <div class="pst-title">
+                    <img src="https://i.pravatar.cc/56?u=12360" class="pst-profile-image">
+                    <span class="pst-title-detail">
+                        <span class="pst-username">lavi</span>
+                        <span class="pst-location">basti</span>
+                    </span>
+                </div>
+                <div>
+                    <img class="pst-image" src="photos/cat.jpg">
+                </div>
+                <!--images details-->
+                <div class="interaction">
+
+                    <span class="material-icons-outlined post-icons">favorite_border</span>
+                    <span class="material-icons-outlined post-icons">chat_bubble_outline</span>
+                    <span class="material-icons-outlined post-icons">send</span>
+                    <span class="material-icons-outlined post-icons right-icon">bookmark_border</span>
+                </div>
+                <div class="state">
+                    <img class="story-img mx" src="https://i.pravatar.cc/16?u=12359">
+                    Liked by <strong class="thinner-text">dev85...</strong> and
+                </div>
+                <div class="desc">
+                    <strong lcass="thiner-text">ayodhya</strong>welocme to ayodhya
+                </div>
+                <div class="view-all-comment">view all 7 omments</div>
+                <div class="comment"><strong>chhavi-and </strong>😂😊😁😍</div>
+                <div class="comment"><strong>lavi and 7 </strong>💕😊🤦‍♀️🤦‍♂️</div>
+                <div class="duration-past">5 hour ago</div>
+                <hr>
+                <div class="newcomment">
+                    <span></span>
+                    <input class="newcommentinput" type="text" placeholder="add comments...." />
+                    <span class="post-text">post</span>
+                </div>
+            </div>
+
+
+            <div class="pst-card">
+                <div class="pst-title">
+                    <img src="https://i.pravatar.cc/56?u=12395" class="pst-profile-image">
+                    <span class="pst-title-detail">
+                        <span class="pst-username">chhavi</span>
+                        <span class="pst-location">ayodhya</span>
+                    </span>
+                </div>
+                <div>
+                    <img class="pst-image" src="photos/panda.jpg">
+                </div>
+                <!--images details-->
+                <div class="interaction">
+
+                    <span class="material-icons-outlined post-icons">favorite_border</span>
+                    <span class="material-icons-outlined post-icons">chat_bubble_outline</span>
+                    <span class="material-icons-outlined post-icons">send</span>
+                    <span class="material-icons-outlined post-icons right-icon">bookmark_border</span>
+                </div>
+                <div class="state">
+                    <img class="story-img mx" src="https://i.pravatar.cc/16?u=12359">
+                    Liked by <strong class="thinner-text">akshay_a</strong> and
+                </div>
+                <div class="desc">
+                    <strong lcass="thiner-text">punrti</strong>wlcome to masi
+                </div>
+                <div class="view-all-comment">view all 7 omments</div>
+                <div class="comment"><strong>chhavi-and </strong>😂😊😁😍</div>
+                <div class="comment"><strong>lavi and 7 </strong>💕😊🤦‍♀️🤦‍♂️</div>
+                <div class="duration-past">5 hour ago</div>
+                <hr>
+                <div class="newcomment">
+                    <span></span>
+                    <input class="newcommentinput" type="text" placeholder="add comments...." />
+                    <span class="post-text">post</span>
+                </div>
+
+            </div>
+            <div class="pst-card">
+                <div class="pst-title">
+                    <img src="https://i.pravatar.cc/56?u=12396" class="pst-profile-image">
+                    <span class="pst-title-detail">
+                        <span class="pst-username">lavi</span>
+                        <span class="pst-location">basti</span>
+                    </span>
+                </div>
+                <div>
+                    <img class="pst-image" src="photos/flm.jpg">
+                </div>
+                <!--images details-->
+                <div class="interaction">
+
+                    <span class="material-icons-outlined post-icons">favorite_border</span>
+                    <span class="material-icons-outlined post-icons">chat_bubble_outline</span>
+                    <span class="material-icons-outlined post-icons">send</span>
+                    <span class="material-icons-outlined post-icons right-icon">bookmark_border</span>
+                </div>
+                <div class="state">
+                    <img class="story-img mx" src="https://i.pravatar.cc/16?u=12359">
+                    Liked by <strong class="thinner-text">dev85...</strong> and
+                </div>
+                <div class="desc">
+                    <strong lcass="thiner-text">ayodhya</strong>welocme to ayodhya
+                </div>
+                <div class="view-all-comment">view all 7 omments</div>
+                <div class="comment"><strong>chhavi-and </strong>😂😊😁😍</div>
+                <div class="comment"><strong>lavi and 7 </strong>💕😊🤦‍♀️🤦‍♂️</div>
+                <div class="duration-past">5 hour ago</div>
+                <hr>
+                <div class="newcomment">
+                    <span></span>
+                    <input class="newcommentinput" type="text" placeholder="add comments...." />
+                    <span class="post-text">post</span>
+                </div>
+            </div>
+
+            <div class="aside-container">
+                <!--start-->
+                <div class="afirst">
+                    <div class="profile">
+                        <img src="https://i.pravatar.cc/56?u=12395" class="pst-profile-imagea">
+                    <span class="pst-title-detaila">
+                        <span class="pst-usernamea">chhavi</span>
+                        <span class="pst-locationa">ayodhya</span>
+                    </span>
+                    </div>
+                    <div class="switch">switch</div>
+                </div>
+                <div class="sugg">
+                    <div class="sfu">Suggestion for you</div>
+                    <div class="sl"> See all</div>
+                </div>
+                <div class="afirst">
+                    <div class="profile">
+                        <img src="https://i.pravatar.cc/56?u=12397" class="pst-profile-imagea">
+                    <span class="pst-title-detaila">
+                        <span class="pst-usernamea">chhavi</span>
+
+                    </span>
+                    </div>
+                    <div class="switch">switch</div>
+                </div>
+                <div class="afirst">
+                    <div class="profile">
+                        <img src="https://i.pravatar.cc/56?u=12391" class="pst-profile-imagea">
+                    <span class="pst-title-detaila">
+                        <span class="pst-usernamea">lavii</span>
+                       
+                    </span>
+                    </div>
+                    <div class="switch">switch</div>
+                </div>
+                <div class="afirst">
+                    <div class="profile">
+                        <img src="https://i.pravatar.cc/56?u=12365" class="pst-profile-imagea">
+                    <span class="pst-title-detaila">
+                        <span class="pst-usernamea">dev</span>
+                     
+                    </span>
+                    </div>
+                    <div class="switch">switch</div>
+                </div>
+                <div class="afirst">
+                    <div class="profile">
+                        <img src="https://i.pravatar.cc/56?u=12344" class="pst-profile-imagea">
+                    <span class="pst-title-detaila">
+                        <span class="pst-usernamea">devash</span>
+                    
+                    </span>
+                    </div>
+                    <div class="switch">switch</div>
+                </div>
+
+                <div class="afirst">
+                    <div class="profile">
+                        <img src="https://i.pravatar.cc/56?u=12345" class="pst-profile-imagea">
+                    <span class="pst-title-detaila">
+                        <span class="pst-usernamea">devashii</span>
+                    
+                    </span>
+                    </div>
+                    <div class="switch">switch</div>
+                </div>
+
+                <div class="afirst">
+                    <div class="profile">
+                        <img src="https://i.pravatar.cc/56?u=12399" class="pst-profile-imagea">
+                    <span class="pst-title-detaila">
+                        <span class="pst-usernamea">deva</span>
+                    
+                    </span>
+                    </div>
+                    <div class="switch">switch</div>
+                </div>
+                <div class="extra">@chhavi srivastav ,  i am student of government girls polytechnic ayodhya</div>
+            </div>
+    </main>
+</body>
+
+</html>
